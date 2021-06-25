@@ -23,8 +23,9 @@ class Magfee extends StatelessWidget {
           // primaryTextTheme: GoogleFonts.latoTextTheme(),
           fontFamily: GoogleFonts.lato().fontFamily,
         ),
+        debugShowCheckedModeBanner: false,
         routes: {
-          "/": (context) => LoginPage(),
+          "/": (context) => Homepage(),
           MyRoutes.homeRoute: (context) => Homepage(),
           MyRoutes.loginRoute: (context) => LoginPage(),
         },

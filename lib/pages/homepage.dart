@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:magfee/widgets/drawer.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Header")),
       body: Center(child: Container(child: Text("Magfee"))),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
