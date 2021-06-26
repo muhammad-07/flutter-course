@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:magfee/pages/login_page.dart';
 import 'package:magfee/utils/routes.dart';
+import 'package:magfee/widgets/themes.dart';
 import 'pages/homepage.dart';
 
 void main() {
@@ -17,12 +18,8 @@ class Magfee extends StatelessWidget {
       
         // home: Homepage(), // Because Rout added so no need
         // themeMode: ThemeMode.dark,
-        // darkTheme: ThemeData(brightness: Brightness.dark),
-        theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          // primaryTextTheme: GoogleFonts.latoTextTheme(),
-          fontFamily: GoogleFonts.lato().fontFamily,
-        ),
+        darkTheme: MyTheme.lightTheme(context),
+        theme: MyTheme.lightTheme(context),
         debugShowCheckedModeBanner: false,
         routes: {
           "/": (context) => Homepage(),
