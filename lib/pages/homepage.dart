@@ -45,16 +45,54 @@ class _HomepageState extends State<Homepage> {
         appBar: AppBar(title: Text("Header")),
         body:
             // Center(child: Container(child: Text("Magfee")),
+
+            // List view
+            //     Padding(
+            //   padding: const EdgeInsets.all(16.0),
+            //   child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
+            //       ? ListView.builder(
+            //           // itemCount: dummyList.length,
+            //           itemCount: CatalogModel.items!.length,
+            //           itemBuilder: (context, index) => ItemWidget(
+            //                 item: CatalogModel.items![index],
+            //                 // item: dummyList[index],
+            //               ))
+            //       : Center(
+            //           child: CircularProgressIndicator(),
+            //         ),
+            // ),
+
+            // Grid View
             Padding(
           padding: const EdgeInsets.all(16.0),
           child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
-              ? ListView.builder(
-                  // itemCount: dummyList.length,
+              ? GridView.builder(
                   itemCount: CatalogModel.items!.length,
-                  itemBuilder: (context, index) => ItemWidget(
-                        item: CatalogModel.items![index],
-                        // item: dummyList[index],
-                      ))
+                  gridDelegate: 
+                  SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16
+                      ),
+                  itemBuilder: (context, index) {
+                    final item = CatalogModel.items![index];
+                    return Card(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                      clipBehavior: Clip.antiAlias,
+                      child: GridTile(
+                        child: Image.network(item.image),
+                        header: Text(item.name),
+                        footer: Text(item.price.toString()),
+                        )
+                      );
+                  },
+                )
+              // // itemCount: dummyList.length,
+              // itemCount: CatalogModel.items!.length,
+              // itemBuilder: (context, index) => ItemWidget(
+              //       item: CatalogModel.items![index],
+              //       // item: dummyList[index],
+              //     ))
               : Center(
                   child: CircularProgressIndicator(),
                 ),
