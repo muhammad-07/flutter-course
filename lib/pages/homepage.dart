@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:magfee/widgets/drawer.dart';
 import 'package:magfee/models/catalog.dart';
-import 'package:magfee/widgets/item_widget.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -68,23 +67,21 @@ class _HomepageState extends State<Homepage> {
           child: (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
               ? GridView.builder(
                   itemCount: CatalogModel.items!.length,
-                  gridDelegate: 
-                  SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 16,
-                      crossAxisSpacing: 16
-                      ),
+                      crossAxisSpacing: 16),
                   itemBuilder: (context, index) {
                     final item = CatalogModel.items![index];
                     return Card(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                      clipBehavior: Clip.antiAlias,
-                      child: GridTile(
-                        child: Image.network(item.image),
-                        header: Text(item.name),
-                        footer: Text(item.price.toString()),
-                        )
-                      );
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                        clipBehavior: Clip.antiAlias,
+                        child: GridTile(
+                          child: Image.network(item.image),
+                          header: Text(item.name),
+                          footer: Text(item.price.toString()),
+                        ));
                   },
                 )
               // // itemCount: dummyList.length,

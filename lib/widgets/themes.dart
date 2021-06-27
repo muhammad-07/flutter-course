@@ -14,7 +14,12 @@ class MyTheme {
         // primaryTextTheme: GoogleFonts.latoTextTheme(),
         fontFamily: GoogleFonts.lato().fontFamily,
       );
-      static ThemeData darkTheme(BuildContext context) => ThemeData(
+
+  static ThemeData darkTheme(BuildContext context) => ThemeData(
         brightness: Brightness.dark,
       );
+
+  //Colors
+  static Color cream = Color(0xfff5f5f5);
+  static Color blue = Color(0xff403b5f);
 }

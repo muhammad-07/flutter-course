@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:magfee/pages/login_page.dart';
 import 'package:magfee/utils/routes.dart';
 import 'package:magfee/widgets/themes.dart';
-import 'pages/homepage.dart';
+// import 'pages/homepage.dart';
+import 'pages/homepage2.dart';
 
 void main() {
   runApp(Magfee());
