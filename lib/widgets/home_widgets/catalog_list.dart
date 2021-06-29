@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:magfee/models/catalog.dart';
+import 'package:magfee/pages/home_details.dart';
 import 'package:magfee/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
   const CatalogList({Key? key}) : super(key: key);
@@ -13,7 +16,16 @@ class CatalogList extends StatelessWidget {
       itemCount: CatalogModel.items!.length,
       itemBuilder: (context, index) {
         final catalogItem = CatalogModel.items![index];
-        return CatalogItem(catalog: catalogItem);
+        return InkWell(
+          child: CatalogItem(catalog: catalogItem),
+          onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeDetails(
+                  catalog: catalogItem,
+                ),
+              )), // 2nd metgod to redirect using route 1st in login
+        );
       },
     );
   }
@@ -29,7 +41,10 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        CatalogImage(img: catalog.image),
+        Hero(
+          child: CatalogImage(img: catalog.image),
+          tag: Key(catalog.id.toString()),
+        ),
         Expanded(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,19 +58,17 @@ class CatalogItem extends StatelessWidget {
               children: [
                 "\$${catalog.price}".text.bold.xl.make(),
                 ElevatedButton(
-                  onPressed: (){},
+                  onPressed: () {},
                   child: "Buy".text.make(),
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(MyTheme.blue),
-                    shape: MaterialStateProperty.all(StadiumBorder())
-                  ),
-                  
+                      backgroundColor: MaterialStateProperty.all(MyTheme.blue),
+                      shape: MaterialStateProperty.all(StadiumBorder())),
                 )
               ],
             )
           ],
         ))
       ],
-    )).white.rounded.square(100).make().p16();
+    )).white.rounded.square(150).make().p16();
   }
 }

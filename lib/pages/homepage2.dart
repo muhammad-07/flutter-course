@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:magfee/widgets/drawer.dart';
 import 'package:magfee/models/catalog.dart';
+import 'package:magfee/widgets/home_widgets/catalog_list.dart';
 import 'package:magfee/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -54,7 +55,7 @@ class _HomepageState extends State<Homepage> {
                 CatalogHeader(),
 
                 (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
-                    ? Expanded(child: CatalogList())
+                    ? Expanded(child: CatalogList().py(16))
                     : Center(child: CircularProgressIndicator()).expand()
 
                 // if (CatalogModel.items != null &&
@@ -143,6 +144,7 @@ class CatalogHeader extends StatelessWidget {
   }
 }
 
+/* day 17 5:27
 // LIST
 class CatalogList extends StatelessWidget {
   const CatalogList({Key? key}) : super(key: key);
@@ -210,3 +212,4 @@ class CatalogImage extends StatelessWidget {
     return Image.network(img).box.make().p16().w32(context);
   }
 }
+*/
