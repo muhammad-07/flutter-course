@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:magfee/utils/routes.dart';
 import 'package:magfee/widgets/drawer.dart';
 import 'package:magfee/models/catalog.dart';
 import 'package:magfee/widgets/home_widgets/catalog_list.dart';
@@ -44,7 +46,12 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
     return Scaffold(
-        appBar: AppBar(title: Text("Header")),
+        appBar: AppBar(title: Text("Products")),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+          backgroundColor: MyTheme.blue,
+          child: Icon(CupertinoIcons.cart_badge_plus),
+        ),
         body: SafeArea(
           child: Container(
             padding: Vx.m32,

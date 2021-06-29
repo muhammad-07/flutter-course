@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:magfee/widgets/themes.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+class CartPage extends StatelessWidget {
+  const CartPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: "cart".text.make(),
+      ),
+      backgroundColor: MyTheme.blue,
+    );
+  }
+}

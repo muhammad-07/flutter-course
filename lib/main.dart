@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:magfee/pages/cart.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:magfee/pages/login_page.dart';
 import 'package:magfee/utils/routes.dart';
@@ -26,6 +27,7 @@ class Magfee extends StatelessWidget {
           "/": (context) => Homepage(),
           MyRoutes.homeRoute: (context) => Homepage(),
           MyRoutes.loginRoute: (context) => LoginPage(),
+          MyRoutes.cartRoute: (context) => CartPage(),
         },
         // initialRoute: '/register',
     );
